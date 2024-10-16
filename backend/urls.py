@@ -16,7 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from backend.views import machine_view, scan_machine_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('machine/list/', machine_view.get_list),
+    path('machine/add/', machine_view.serv_add),
+    path('machine/active/<int:id>', machine_view.active_machine),
+    path('scan/machine/<int:id>', scan_machine_view.scan_machine),
 ]
